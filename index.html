@@ -74,13 +74,39 @@
 
         /* --- Hero --- */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
-            background-size: cover; background-position: center; height: 85vh;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; margin-top: 80px;
-        }
-        .hero-content h2 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; }
-        .hero-content p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 30px auto; }
+    /* IMPORTANT: 
+       1. Make sure your image is named "background.jpg" exactly.
+       2. If your image is a PNG, change it to "background.png" below.
+       3. Make sure the image is in the SAME folder as index.html. 
+    */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh; /* Full height */
+    
+    /* Layout to push text to bottom */
+    display: flex;
+    align-items: flex-end; 
+    justify-content: center;
+    
+    text-align: center;
+    color: white;
+    padding-bottom: 80px; /* Space from bottom */
+    margin-top: 60px; /* Space for header */
+}
 
+.hero h2 {
+    font-size: 2.5rem; /* Size of the text */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.9); /* Shadow to make text readable */
+    margin: 0;
+    padding: 0 20px;
+}
+
+/* Make text slightly smaller on mobile phones */
+@media (max-width: 768px) {
+    .hero h2 { font-size: 1.8rem; }
+}
         /* --- Stats --- */
         .stats { background: var(--white); padding: 50px 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; text-align: center; margin-top: -50px; position: relative; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 1000px; margin-left: auto; margin-right: auto; border-radius: 8px; }
         .stat-box { flex: 1; min-width: 200px; }
