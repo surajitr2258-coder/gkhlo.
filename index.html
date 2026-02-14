@@ -4,34 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anubhav NGO | Diamond Harbour</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts: Poppins (English) and Baloo Da 2 (Bengali) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Baloo+Da+2:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* --- CSS STYLES --- */
         :root {
-            --primary: #e65100; 
-            --secondary: #1a237e; 
-            --light: #f4f4f4;
+            --primary: #e65100; /* Orange */
+            --secondary: #1a237e; /* Blue */
+            --light: #f9f9f9;
             --dark: #333;
             --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--dark); background-color: var(--light); }
+        
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            color: var(--dark); 
+            background-color: var(--light); 
+        }
+
+        /* Bengali Font Class */
+        .bengali-font {
+            font-family: 'Baloo Da 2', cursive;
+            font-weight: 800;
+        }
+
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
         /* --- Header --- */
         header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1200px; margin: 0 auto; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 5%; max-width: 1200px; margin: 0 auto; }
+        
         .brand { display: flex; align-items: center; gap: 15px; }
-        .logo-img { height: 60px; width: auto; }
-        .brand-text h1 { font-size: 1.5rem; color: var(--primary); font-weight: 800; line-height: 1.2; }
-        .reg-badge { font-size: 0.75rem; background-color: var(--secondary); color: var(--white); padding: 2px 8px; border-radius: 4px; display: inline-block; font-weight: 500; }
-        .nav-links { display: flex; gap: 20px; }
+        .logo-img { height: 65px; width: auto; }
+        
+        /* Updated Brand Text Styles */
+        .brand-text { display: flex; flex-direction: column; justify-content: center; }
+        .brand-text h1 { 
+            font-size: 2.2rem; /* Larger for Bengali */
+            color: var(--primary); 
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .reg-badge { 
+            font-size: 0.75rem; 
+            background-color: var(--secondary); 
+            color: var(--white); 
+            padding: 2px 8px; 
+            border-radius: 4px; 
+            display: inline-block; 
+            font-weight: 500; 
+            letter-spacing: 0.5px;
+            width: fit-content;
+        }
+
+        .nav-links { display: flex; gap: 20px; align-items: center;}
         .nav-links a { font-weight: 600; color: var(--secondary); transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
         .btn-donate { background-color: var(--primary); color: white !important; padding: 10px 20px; border-radius: 5px; font-weight: 600; }
@@ -39,11 +75,11 @@
         /* --- Hero --- */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
-            background-size: cover; background-position: center; height: 80vh;
+            background-size: cover; background-position: center; height: 85vh;
             display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; margin-top: 80px;
         }
         .hero-content h2 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; }
-        .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px auto; }
+        .hero-content p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 30px auto; }
 
         /* --- Stats --- */
         .stats { background: var(--white); padding: 50px 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; text-align: center; margin-top: -50px; position: relative; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 1000px; margin-left: auto; margin-right: auto; border-radius: 8px; }
@@ -55,7 +91,19 @@
         .section-title { text-align: center; font-size: 2.2rem; color: var(--secondary); margin-bottom: 50px; position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary); margin: 10px auto; }
 
-        /* --- NEW PROJECT TABS STYLES --- */
+        /* --- About Section (Intro) Styles --- */
+        .about-story {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary);
+        }
+        .about-story h3 { color: var(--secondary); margin-bottom: 15px; font-size: 1.5rem; }
+        .about-story p { margin-bottom: 15px; color: #555; font-size: 1.05rem; }
+
+        /* --- PROJECT TABS STYLES --- */
         .tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
         .tab-btn {
             background: white; border: 2px solid var(--secondary); color: var(--secondary);
@@ -76,18 +124,13 @@
         .gallery-item { height: 200px; background: #ddd; overflow: hidden; border-radius: 8px; position: relative; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
         .gallery-item:hover img { transform: scale(1.05); }
-        
-        /* Placeholder styling for empty images */
-        .placeholder-text {
-            display: flex; align-items: center; justify-content: center; height: 100%;
-            background: #eee; color: #777; font-size: 0.9rem; padding: 10px; text-align: center;
-        }
+        .placeholder-text { display: flex; align-items: center; justify-content: center; height: 100%; background: #eee; color: #777; font-size: 0.9rem; padding: 10px; text-align: center; }
 
         /* --- Footer --- */
         footer { background: var(--secondary); color: white; padding: 60px 5% 20px; }
         .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 250px; }
-        .contact-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .contact-list li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
         .contact-list a { color: #ccc; }
         .copyright { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #ccc; }
 
@@ -103,9 +146,9 @@
             <div class="brand">
                 <img src="logo.png" alt="Anubhav Logo" class="logo-img" onerror="this.style.display='none'">
                 <div class="brand-text">
-                    <h1>ANUBHAV</h1>
-                    <!-- UPDATE REGISTRATION NUMBER HERE -->
-                    <span class="reg-badge">Reg No: [YOUR-REG-NO]</span>
+                    <!-- Bengali Font applied here -->
+                    <h1 class="bengali-font">অনুভব</h1>
+                    <span class="reg-badge">Reg No: S0028919</span>
                 </div>
             </div>
             <nav>
@@ -122,9 +165,9 @@
     <!-- Hero -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>Empowering Rural Bengal</h2>
-            <p>From Diamond Harbour to the Sundarbans, we are dedicated to uplifting children through education.</p>
-            <a href="#projects" class="btn-donate">See Our Work</a>
+            <h2 class="bengali-font">মানুষের পাশে, মানুষের সাথে</h2>
+            <p>Empowering lives from Diamond Harbour to the deep Sundarbans. We stand for humanity.</p>
+            <a href="#projects" class="btn-donate">Our Works</a>
         </div>
     </section>
 
@@ -139,20 +182,36 @@
             <div>Children in Coaching</div>
         </div>
         <div class="stat-box">
-            <div class="stat-number">4</div>
-            <div>Districts Covered</div>
+            <div class="stat-number">100+</div>
+            <div>Households Fed during COVID</div>
         </div>
     </div>
 
-    <!-- About -->
+    <!-- About Section (Intro Story) -->
     <section id="about" class="section">
-        <h2 class="section-title">Who We Are</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <strong>Anubhav</strong> is a registered NGO based in Diamond Harbour. We have a rich history of social work across West Bengal, ensuring that education and essential resources reach the most remote corners of Jhargram, Purulia, Bankura, and the Sundarbans.
+        <h2 class="section-title">Our Story</h2>
+        
+        <div class="about-story">
+            <h3>Born in Crisis</h3>
+            <p>
+                <strong>Anubhav</strong> became operational when the world came to a standstill due to the COVID-19 outbreak. 
+                While the world locked down, we saw the heartbreaking reality in our neighborhoods. People were starving for food. 
+                Essential items like <strong>sanitary pads, baby food, masks, and sanitizers</strong> were unavailable to those who needed them most.
+            </p>
+            <p>
+                We could not stand by and watch. In response, we launched our first massive relief mission. We carried out two 
+                back-to-back projects in the deep interior areas of <strong>Sundarbans and Namkhana</strong>. 
+                We successfully reached out to <strong>100 households</strong>, providing them with food rations and essential hygiene kits. 
+                That spirit of service in the face of adversity defined who we are today.
+            </p>
+        </div>
+
+        <p style="text-align: center; color: #666;">
+            Since then, we have expanded our work to Jhargram, Purulia, and Bankura, continuing our mission to support the underprivileged.
         </p>
     </section>
 
-    <!-- PROJECTS SECTION (UPDATED) -->
+    <!-- PROJECTS SECTION -->
     <section id="projects" class="section" style="background-color: #fff;">
         <h2 class="section-title">Our Projects</h2>
 
@@ -170,15 +229,13 @@
                 <span class="project-status status-ongoing">Current Ongoing Project</span>
                 <h3>Sundarbans Coaching Center</h3>
                 <p>Located in the heart of the delta, this project currently supports nearly 70 children. We provide free coaching, study materials, and nutritional support to ensure they stay in school and succeed.</p>
+                <p><em>(This region was also the site of our initial COVID-19 relief work in Namkhana).</em></p>
             </div>
             <!-- Sundarbans Gallery -->
             <div class="gallery">
-                <!-- Replace 'sundarban1.jpg' with your real file names -->
                 <div class="gallery-item"><img src="sundarban1.jpg" alt="Sundarbans Photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: sundarban1.jpg</div></div>
                 <div class="gallery-item"><img src="sundarban2.jpg" alt="Sundarbans Photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: sundarban2.jpg</div></div>
                 <div class="gallery-item"><img src="sundarban3.jpg" alt="Sundarbans Photo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: sundarban3.jpg</div></div>
-                <div class="gallery-item"><img src="sundarban3.jpg" alt="Sundarbans Photo 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: sundarban4.jpg</div></div>
-                <div class="gallery-item"><img src="sundarban3.jpg" alt="Sundarbans Photo 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: sundarban5.jpg</div></div>
             </div>
         </div>
 
@@ -194,8 +251,6 @@
                 <div class="gallery-item"><img src="jhargram1.jpg" alt="Jhargram Photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: jhargram1.jpg</div></div>
                 <div class="gallery-item"><img src="jhargram2.jpg" alt="Jhargram Photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: jhargram2.jpg</div></div>
                 <div class="gallery-item"><img src="jhargram3.jpg" alt="Jhargram Photo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: jhargram3.jpg</div></div>
-                <div class="gallery-item"><img src="jhargram3.jpg" alt="Jhargram Photo 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: jhargram4.jpg</div></div>
-                <div class="gallery-item"><img src="jhargram3.jpg" alt="Jhargram Photo 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: jhargram5.jpg</div></div>
             </div>
         </div>
 
@@ -226,8 +281,6 @@
                 <div class="gallery-item"><img src="bankura1.jpg" alt="Bankura Photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: bankura1.jpg</div></div>
                 <div class="gallery-item"><img src="bankura2.jpg" alt="Bankura Photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: bankura2.jpg</div></div>
                 <div class="gallery-item"><img src="bankura3.jpg" alt="Bankura Photo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: bankura3.jpg</div></div>
-                <div class="gallery-item"><img src="bankura3.jpg" alt="Bankura Photo 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: bankura4.jpg</div></div>
-                <div class="gallery-item"><img src="bankura3.jpg" alt="Bankura Photo 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: bankura5.jpg</div></div>
             </div>
         </div>
 
@@ -237,17 +290,37 @@
     <footer id="contact">
         <div class="footer-container">
             <div class="footer-col">
-                <h2 style="color:white; margin-bottom:15px;">ANUBHAV</h2>
-                <p>Diamond Harbour, West Bengal</p>
-                <br>
-                <!-- UPDATE REGISTRATION NUMBER HERE -->
-                <span class="reg-badge" style="border: 1px solid white;">Reg No: [YOUR-REG-NO]</span>
+                <!-- Bengali Logo in Footer -->
+                <h2 class="bengali-font" style="color:white; margin-bottom:10px; font-size: 2.5rem;">অনুভব</h2>
+                <span class="reg-badge" style="border: 1px solid white; margin-bottom: 20px;">Reg No: S0028919</span>
+                
+                <div style="margin-top: 20px; color: #ddd;">
+                    <p><strong>Registered Office:</strong></p>
+                    <p>Diamond Harbour, South 24 Parganas</p>
+                    <p>West Bengal, India</p>
+                </div>
             </div>
+            
             <div class="footer-col">
                 <h3 style="color:var(--primary); margin-bottom:20px;">Contact Us</h3>
                 <ul class="contact-list">
-                    <li><i class="fas fa-phone"></i> <a href="tel:9734477236">+91 9734477236</a></li>
-                    <li><i class="fas fa-phone"></i> <a href="tel:7001013732">+91 7001013732</a></li>
+                    <li>
+                        <i class="fas fa-phone"></i> 
+                        <div>
+                            <a href="tel:9734477236">+91 9734477236</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i> 
+                        <div>
+                            <a href="tel:7001013732">+91 7001013732</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <!-- Add email if available, otherwise generic text -->
+                        <span>Contact us for donations</span>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -260,21 +333,18 @@
             var i;
             var x = document.getElementsByClassName("project-content");
             var tabs = document.getElementsByClassName("tab-btn");
-            
-            // Hide all project contents
             for (i = 0; i < x.length; i++) {
                 x[i].style.display = "none";
                 x[i].classList.remove("active");
             }
-            
-            // Remove active class from all buttons
             for (i = 0; i < tabs.length; i++) {
                 tabs[i].classList.remove("active");
             }
-            
-            // Show the specific project and activate button
             document.getElementById(projectName).style.display = "block";
-            // Find the button that was clicked and add active class
+            // Small timeout to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                document.getElementById(projectName).classList.add("active");
+            }, 10);
             event.currentTarget.classList.add("active");
         }
     </script>
