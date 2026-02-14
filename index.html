@@ -12,275 +12,87 @@
     <style>
         /* --- CSS STYLES --- */
         :root {
-            --primary: #e65100; /* Deep Orange - representing energy/service */
-            --secondary: #1a237e; /* Deep Blue - representing trust */
+            --primary: #e65100; 
+            --secondary: #1a237e; 
             --light: #f4f4f4;
             --dark: #333;
             --white: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--dark); background-color: var(--light); }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* --- Header & Navigation --- */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-img {
-            height: 60px; /* Adjust height based on your logo */
-            width: auto;
-        }
-
-        .brand-text h1 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .reg-badge {
-            font-size: 0.75rem;
-            background-color: var(--secondary);
-            color: var(--white);
-            padding: 2px 8px;
-            border-radius: 4px;
-            display: inline-block;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            font-weight: 600;
-            color: var(--secondary);
-            transition: 0.3s;
-        }
-
+        /* --- Header --- */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1200px; margin: 0 auto; }
+        .brand { display: flex; align-items: center; gap: 15px; }
+        .logo-img { height: 60px; width: auto; }
+        .brand-text h1 { font-size: 1.5rem; color: var(--primary); font-weight: 800; line-height: 1.2; }
+        .reg-badge { font-size: 0.75rem; background-color: var(--secondary); color: var(--white); padding: 2px 8px; border-radius: 4px; display: inline-block; font-weight: 500; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { font-weight: 600; color: var(--secondary); transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
+        .btn-donate { background-color: var(--primary); color: white !important; padding: 10px 20px; border-radius: 5px; font-weight: 600; }
 
-        .btn-donate {
-            background-color: var(--primary);
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-        }
-
-        /* --- Hero Section --- */
+        /* --- Hero --- */
         .hero {
-            /* This assumes your file is named background.jpg */
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-            margin-top: 80px; /* Offset for fixed header */
+            background-size: cover; background-position: center; height: 80vh;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; margin-top: 80px;
         }
+        .hero-content h2 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; }
+        .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px auto; }
 
-        .hero-content h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-        }
-
-        /* --- Stats Counter --- */
-        .stats {
-            background: var(--white);
-            padding: 50px 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            text-align: center;
-            margin-top: -50px;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 8px;
-        }
-
+        /* --- Stats --- */
+        .stats { background: var(--white); padding: 50px 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; text-align: center; margin-top: -50px; position: relative; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 1000px; margin-left: auto; margin-right: auto; border-radius: 8px; }
         .stat-box { flex: 1; min-width: 200px; }
         .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); }
-        .stat-label { font-size: 1rem; color: #666; font-weight: 600; }
 
-        /* --- Sections General --- */
-        .section {
-            padding: 80px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        /* --- General Section --- */
+        .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--secondary); margin-bottom: 50px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary); margin: 10px auto; }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--secondary);
-            margin-bottom: 50px;
-            position: relative;
+        /* --- NEW PROJECT TABS STYLES --- */
+        .tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .tab-btn {
+            background: white; border: 2px solid var(--secondary); color: var(--secondary);
+            padding: 10px 25px; cursor: pointer; font-weight: 600; font-size: 1rem; border-radius: 30px; transition: 0.3s;
         }
+        .tab-btn:hover, .tab-btn.active { background: var(--secondary); color: white; }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--primary);
-            margin: 10px auto;
-        }
-
-        /* --- Projects --- */
-        /* Ongoing Project Highlight */
-        .ongoing-project {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 60px;
-        }
-
-        .op-content { padding: 40px; flex: 1; min-width: 300px; }
-        .op-visual { 
-            flex: 1; 
-            min-width: 300px; 
-            background: #ddd; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 300px;
-        }
+        .project-content { display: none; animation: fadeIn 0.5s; }
+        .project-content.active { display: block; }
         
-        /* Placeholder for visual if image not present */
-        .op-visual i { font-size: 5rem; color: #bbb; }
+        .project-desc { margin-bottom: 30px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .project-status { display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; }
+        .status-ongoing { background: #e67e22; color: white; }
+        .status-completed { background: #27ae60; color: white; }
 
-        .badge-live {
-            background: #27ae60;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
+        /* --- Gallery Grid --- */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .gallery-item { height: 200px; background: #ddd; overflow: hidden; border-radius: 8px; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        
+        /* Placeholder styling for empty images */
+        .placeholder-text {
+            display: flex; align-items: center; justify-content: center; height: 100%;
+            background: #eee; color: #777; font-size: 0.9rem; padding: 10px; text-align: center;
         }
-
-        /* Past Projects Grid */
-        .past-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--secondary);
-        }
-
-        .project-card:hover { transform: translateY(-5px); }
-        .project-card h3 { margin: 15px 0; color: var(--dark); }
-        .project-card i { font-size: 2rem; color: var(--primary); }
 
         /* --- Footer --- */
-        footer {
-            background: var(--secondary);
-            color: white;
-            padding: 60px 5% 20px;
-        }
-
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        footer { background: var(--secondary); color: white; padding: 60px 5% 20px; }
+        .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 250px; }
-        .footer-col h3 { margin-bottom: 20px; color: var(--primary); }
-        
-        .contact-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .contact-list a { color: #ccc; transition: 0.3s; }
-        .contact-list a:hover { color: white; text-decoration: underline; }
+        .contact-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .contact-list a { color: #ccc; }
+        .copyright { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #ccc; }
 
-        .copyright {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
-            color: #ccc;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .navbar { flex-direction: column; gap: 15px; }
-            .nav-links { gap: 15px; font-size: 0.9rem; }
-            .hero-content h2 { font-size: 2rem; }
-            .stats { flex-direction: column; padding: 30px; }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { .navbar { flex-direction: column; gap: 15px; } .hero-content h2 { font-size: 2rem; } }
     </style>
 </head>
 <body>
@@ -289,149 +101,177 @@
     <header>
         <div class="navbar">
             <div class="brand">
-                <!-- LOGO: Ensure logo.png is in your folder -->
-                <img src="logo.png" alt="Anubhav Logo" class="logo-img" onerror="this.style.display='none'"> 
+                <img src="logo.png" alt="Anubhav Logo" class="logo-img" onerror="this.style.display='none'">
                 <div class="brand-text">
                     <h1>ANUBHAV</h1>
-                    <!-- REGISTRATION NUMBER -->
-                    <!-- REPLACE XXXXX WITH YOUR ACTUAL REG NUMBER -->
-                    <span class="reg-badge">Reg No: [S0028919]</span>
+                    <!-- UPDATE REGISTRATION NUMBER HERE -->
+                    <span class="reg-badge">Reg No: [YOUR-REG-NO]</span>
                 </div>
             </div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact" class="btn-donate">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h2>Empowering Rural Bengal</h2>
-            <p>From Diamond Harbour to the Sundarbans, Anubhav is dedicated to shaping the future of children through education and care.</p>
-            <a href="#contact" class="btn-donate">Join Our Mission</a>
+            <p>From Diamond Harbour to the Sundarbans, we are dedicated to uplifting children through education.</p>
+            <a href="#projects" class="btn-donate">See Our Work</a>
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats -->
     <div class="stats">
         <div class="stat-box">
             <div class="stat-number">50+</div>
-            <div class="stat-label">Projects Completed</div>
+            <div>Projects Completed</div>
         </div>
         <div class="stat-box">
             <div class="stat-number">70+</div>
-            <div class="stat-label">Children in Coaching</div>
+            <div>Children in Coaching</div>
         </div>
         <div class="stat-box">
             <div class="stat-number">4</div>
-            <div class="stat-label">Districts Covered</div>
+            <div>Districts Covered</div>
         </div>
     </div>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about" class="section">
         <h2 class="section-title">Who We Are</h2>
-        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <p style="font-size: 1.1rem; color: #555;">
-                We are <strong>Anubhav</strong>, a registered NGO based in <strong>Diamond Harbour, West Bengal</strong>. 
-                With a passion for social service, we have spent years bridging the gap for underprivileged communities.
-                From relief work to educational initiatives, our footprint spans across Jhargram, Purulia, Bankura, and the Sundarbans.
-            </p>
-        </div>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <strong>Anubhav</strong> is a registered NGO based in Diamond Harbour. We have a rich history of social work across West Bengal, ensuring that education and essential resources reach the most remote corners of Jhargram, Purulia, Bankura, and the Sundarbans.
+        </p>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section" style="background-color: #fcfcfc;">
-        <h2 class="section-title">Our Work</h2>
+    <!-- PROJECTS SECTION (UPDATED) -->
+    <section id="projects" class="section" style="background-color: #fff;">
+        <h2 class="section-title">Our Projects</h2>
 
-        <!-- Featured Project -->
-        <h3 style="margin-bottom: 20px; color: #555;">Current Initiative</h3>
-        <div class="ongoing-project">
-            <div class="op-visual">
-                <!-- If you have a specific image for the coaching center, change the HTML to an img tag -->
-                <img src="project.jpg" alt="Sundarbans Coaching Center" style="width: 100%; height: 100%; object-fit: cover;"></i>
+        <!-- Project Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openProject('sundarbans')">Sundarbans</button>
+            <button class="tab-btn" onclick="openProject('jhargram')">Jhargram</button>
+            <button class="tab-btn" onclick="openProject('purulia')">Purulia</button>
+            <button class="tab-btn" onclick="openProject('bankura')">Bankura</button>
+        </div>
+
+        <!-- 1. SUNDARBANS CONTENT -->
+        <div id="sundarbans" class="project-content active">
+            <div class="project-desc">
+                <span class="project-status status-ongoing">Current Ongoing Project</span>
+                <h3>Sundarbans Coaching Center</h3>
+                <p>Located in the heart of the delta, this project currently supports nearly 70 children. We provide free coaching, study materials, and nutritional support to ensure they stay in school and succeed.</p>
             </div>
-            <div class="op-content">
-                <span class="badge-live">Ongoing</span>
-                <h3 style="margin: 15px 0; font-size: 1.8rem; color: var(--secondary);">Sundarbans Coaching Center</h3>
-                <p>We are currently operating a dedicated coaching center in the heart of the Sundarbans.</p>
-                <br>
-                <ul class="fa-ul" style="margin-left: 20px;">
-                    <li><span class="fa-li"><i class="fas fa-check-circle" style="color:green"></i></span>Providing free education.</li>
-                    <li><span class="fa-li"><i class="fas fa-check-circle" style="color:green"></i></span>Supporting nearly <strong>70 children</strong>.</li>
-                    <li><span class="fa-li"><i class="fas fa-check-circle" style="color:green"></i></span>Focusing on holistic development.</li>
-                </ul>
+            <!-- Sundarbans Gallery -->
+            <div class="gallery">
+                <!-- Replace 'sundarban1.jpg' with your real file names -->
+                <div class="gallery-item"><img src="sundarban1.jpg" alt="Sundarbans Photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: sundarban1.jpg</div></div>
+                <div class="gallery-item"><img src="sundarban2.jpg" alt="Sundarbans Photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: sundarban2.jpg</div></div>
+                <div class="gallery-item"><img src="sundarban3.jpg" alt="Sundarbans Photo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: sundarban3.jpg</div></div>
             </div>
         </div>
 
-        <!-- Past Projects -->
-        <h3 style="margin-bottom: 30px; text-align: center; color: #555;">Our Impact History</h3>
-        <div class="past-grid">
-            <div class="project-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Jhargram</h3>
-                <p>Executed multiple community development and educational drives for tribal areas.</p>
+        <!-- 2. JHARGRAM CONTENT -->
+        <div id="jhargram" class="project-content">
+            <div class="project-desc">
+                <span class="project-status status-completed">Completed Projects</span>
+                <h3>Tribal Welfare in Jhargram</h3>
+                <p>Our work in Jhargram focused on tribal communities. We organized health camps, distributed clothes, and set up temporary learning centers for children in remote forested areas.</p>
             </div>
-            <div class="project-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Purulia</h3>
-                <p>Completed relief projects and health awareness camps in remote villages.</p>
-            </div>
-            <div class="project-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Bankura</h3>
-                <p>Successful distribution of educational kits and essential supplies to needy families.</p>
+            <!-- Jhargram Gallery -->
+            <div class="gallery">
+                <div class="gallery-item"><img src="jhargram1.jpg" alt="Jhargram Photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: jhargram1.jpg</div></div>
+                <div class="gallery-item"><img src="jhargram2.jpg" alt="Jhargram Photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: jhargram2.jpg</div></div>
+                <div class="gallery-item"><img src="jhargram3.jpg" alt="Jhargram Photo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: jhargram3.jpg</div></div>
             </div>
         </div>
+
+        <!-- 3. PURULIA CONTENT -->
+        <div id="purulia" class="project-content">
+            <div class="project-desc">
+                <span class="project-status status-completed">Completed Projects</span>
+                <h3>Development Drives in Purulia</h3>
+                <p>In Purulia, Anubhav successfully executed projects tackling malnutrition and lack of educational supplies. We reached over 200 families during our tenure here.</p>
+            </div>
+            <!-- Purulia Gallery -->
+            <div class="gallery">
+                <div class="gallery-item"><img src="purulia1.jpg" alt="Purulia Photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: purulia1.jpg</div></div>
+                <div class="gallery-item"><img src="purulia2.jpg" alt="Purulia Photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: purulia2.jpg</div></div>
+                <div class="gallery-item"><img src="purulia3.jpg" alt="Purulia Photo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: purulia3.jpg</div></div>
+            </div>
+        </div>
+
+        <!-- 4. BANKURA CONTENT -->
+        <div id="bankura" class="project-content">
+            <div class="project-desc">
+                <span class="project-status status-completed">Completed Projects</span>
+                <h3>Community Support in Bankura</h3>
+                <p>Our Bankura initiative involved winter garment distribution and scholarship programs for meritorious students from economically weaker sections.</p>
+            </div>
+            <!-- Bankura Gallery -->
+            <div class="gallery">
+                <div class="gallery-item"><img src="bankura1.jpg" alt="Bankura Photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: bankura1.jpg</div></div>
+                <div class="gallery-item"><img src="bankura2.jpg" alt="Bankura Photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: bankura2.jpg</div></div>
+                <div class="gallery-item"><img src="bankura3.jpg" alt="Bankura Photo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">Add Photo: bankura3.jpg</div></div>
+            </div>
+        </div>
+
     </section>
 
-    <!-- Footer / Contact -->
+    <!-- Footer -->
     <footer id="contact">
         <div class="footer-container">
             <div class="footer-col">
-                <div class="brand" style="margin-bottom: 20px;">
-                    <h2 style="color:white;">ANUBHAV</h2>
-                </div>
-                <p>Registered NGO working for the welfare of West Bengal.</p>
+                <h2 style="color:white; margin-bottom:15px;">ANUBHAV</h2>
+                <p>Diamond Harbour, West Bengal</p>
                 <br>
-                <!-- REPLACE XXXXX WITH YOUR ACTUAL REG NUMBER -->
-                <span class="reg-badge" style="border: 1px solid white;">Reg No: [ENTER-REG-NO-HERE]</span>
+                <!-- UPDATE REGISTRATION NUMBER HERE -->
+                <span class="reg-badge" style="border: 1px solid white;">Reg No: [YOUR-REG-NO]</span>
             </div>
-
             <div class="footer-col">
-                <h3>Contact Us</h3>
+                <h3 style="color:var(--primary); margin-bottom:20px;">Contact Us</h3>
                 <ul class="contact-list">
-                    <li>
-                        <i class="fas fa-map-pin"></i>
-                        <span>Diamond Harbour, West Bengal, India</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:9734477236">+91 9734477236</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:7001013732">+91 7001013732</a>
-                    </li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:9734477236">+91 9734477236</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:7001013732">+91 7001013732</a></li>
                 </ul>
             </div>
-
-            <div class="footer-col">
-                <h3>Get Involved</h3>
-                <p>Your support can change a life. Contact us to volunteer or donate to our Sundarbans coaching project.</p>
-            </div>
         </div>
-
-        <div class="copyright">
-            &copy; 2024 Anubhav NGO. All Rights Reserved.
-        </div>
+        <div class="copyright">&copy; 2024 Anubhav NGO. All Rights Reserved.</div>
     </footer>
+
+    <!-- JavaScript for Tabs -->
+    <script>
+        function openProject(projectName) {
+            var i;
+            var x = document.getElementsByClassName("project-content");
+            var tabs = document.getElementsByClassName("tab-btn");
+            
+            // Hide all project contents
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+                x[i].classList.remove("active");
+            }
+            
+            // Remove active class from all buttons
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            
+            // Show the specific project and activate button
+            document.getElementById(projectName).style.display = "block";
+            // Find the button that was clicked and add active class
+            event.currentTarget.classList.add("active");
+        }
+    </script>
 
 </body>
 </html>
