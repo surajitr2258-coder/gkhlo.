@@ -21,7 +21,7 @@
             --bg-light: #f8f9fa;
             --text-dark: #2c3e50;
             --white: #ffffff;
-            --header-gradient: linear-gradient(90deg, #1565c0 0%, #0d47a1 100%); /* NEW COLORFUL HEADER */
+            --header-gradient: linear-gradient(90deg, #1565c0 0%, #0d47a1 100%);
             --footer-gradient: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
         }
 
@@ -38,7 +38,7 @@
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
 
-        /* --- HEADER (UPDATED COLOR) --- */
+        /* --- HEADER --- */
         header { 
             background: var(--header-gradient); 
             box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
@@ -47,9 +47,8 @@
         }
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 5%; max-width: 1400px; margin: 0 auto; }
         .brand { display: flex; align-items: center; gap: 15px; }
-        .logo-img { height: 60px; width: auto; background: white; border-radius: 50%; padding: 2px; } /* Added background to logo so it shows on blue */
+        .logo-img { height: 60px; width: auto; background: white; border-radius: 50%; padding: 2px; } 
         
-        /* Updated Text Colors for Dark Header */
         .brand-text h1 { font-size: 2.2rem; color: var(--white); line-height: 1; margin-bottom: 2px; }
         .reg-badge { font-size: 0.75rem; background-color: var(--primary); color: var(--white); padding: 4px 12px; border-radius: 20px; display: inline-block; font-weight: 600; }
         
@@ -57,7 +56,7 @@
         .nav-links a { font-weight: 600; color: rgba(255,255,255,0.9); font-size: 1rem; position: relative; }
         .nav-links a:hover { color: var(--primary); }
 
-        /* Join Us Button Styles (Header) */
+        /* Join Us Button Styles */
         .btn-join {
             display: flex;
             align-items: center;
@@ -251,14 +250,17 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Work</a></li>
                     
-                    <!-- JOIN US BUTTON (With Revolving Icon) -->
+                    <!-- JOIN US BUTTON -->
                     <li>
                         <a href="#projects" class="btn-join" onclick="openTab('join')">
                             <i class="fas fa-life-ring revolving-icon"></i> Join Us
                         </a>
                     </li>
-
-                    <li><a href="#donations" class="btn-donate">Donate</a></li>
+                    
+                    <!-- DONATE BUTTON (Triggers Bank Details) -->
+                    <li>
+                        <a href="#projects" class="btn-donate" onclick="openTab('donations')">Donate</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -320,9 +322,9 @@
             <button class="tab-btn" onclick="openTab('purulia')">Purulia</button>
             <button class="tab-btn" onclick="openTab('diamond')">Diamond Harbour</button>
             <button class="tab-btn" onclick="openTab('environment')">Environment</button>
-            <!-- REMOVED JOIN US BUTTON FROM TAB LIST -->
+            <!-- REMOVED JOIN US BUTTON FROM LIST -->
             <button class="tab-btn" onclick="openTab('gallery')">Gallery</button>
-            <button class="tab-btn" onclick="openTab('donations')">Donations</button>
+            <!-- REMOVED DONATIONS BUTTON FROM LIST (Hidden Tab) -->
         </div>
 
         <!-- 1. SUNDARBANS -->
@@ -462,12 +464,13 @@
             <div class="gallery">
                 <div class="gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=400&q=80" alt="Planting Trees"></div>
                 <div class="gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=400&q=80" alt="Green Earth"></div>
-                <div class="gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=400&q=80" alt="Forest Sunlight"></div>
-                <div class="gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1536147116438-62679a5e01f2?auto=format&fit=crop&w=400&q=80" alt="Growth"></div>
+                <!-- LOCAL PHOTOS FOR ENV 1 & 2 -->
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="env1.jpg" alt="Environment 1"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="env2.jpg" alt="Environment 2"></div>
             </div>
         </div>
 
-        <!-- 7. JOIN US (Hidden Tab Content - Triggered by Header Button) -->
+        <!-- 7. JOIN US (Hidden Tab Content) -->
         <div id="join" class="project-content">
             <div class="form-box">
                 <h2 style="color: var(--primary); margin-bottom: 20px; text-align: center;">Become a Member</h2>
@@ -516,7 +519,7 @@
             </div>
         </div>
 
-        <!-- 9. DONATIONS -->
+        <!-- 9. DONATIONS (Hidden Tab Content - Triggered by Header Button) -->
         <div id="donations" class="project-content">
             <div class="donation-box">
                 <h2 style="color: var(--primary); margin-bottom: 20px; text-align: center;">Support Us</h2>
