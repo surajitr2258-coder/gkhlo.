@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anubhav NGO | Diamond Harbour</title>
     
-    <!-- Google Fonts: Poppins (English) and Baloo Da 2 (Bengali) -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Baloo+Da+2:wght@400;600;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
@@ -14,8 +14,8 @@
     <style>
         /* --- CSS STYLES --- */
         :root {
-            --primary: #e65100; /* Orange */
-            --secondary: #1a237e; /* Blue */
+            --primary: #e65100;
+            --secondary: #1a237e;
             --light: #f9f9f9;
             --dark: #333;
             --white: #ffffff;
@@ -31,7 +31,6 @@
         }
 
         .bengali-font { font-family: 'Baloo Da 2', cursive; font-weight: 800; }
-
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
@@ -47,23 +46,51 @@
         .nav-links a:hover { color: var(--primary); }
         .btn-donate { background-color: var(--primary); color: white !important; padding: 10px 20px; border-radius: 5px; font-weight: 600; }
 
-        /* --- Hero Section --- */
+        /* --- HERO SLIDER SECTION --- */
         .hero {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            position: relative;
             height: 90vh;
             display: flex;
-            align-items: flex-end; /* Pushes text to bottom */
+            align-items: flex-end;
             justify-content: center;
             text-align: center;
             color: white;
             padding-bottom: 60px;
             margin-top: 60px;
+            overflow: hidden;
         }
 
+        /* The Slides */
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 0;
+        }
+
+        .hero-slide.active { opacity: 1; }
+
+        /* Brighter Overlay (Only 30% black opacity instead of 80%) */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3); 
+            z-index: 1;
+        }
+
+        /* The Text on top */
         .hero h2 {
+            position: relative;
+            z-index: 2; /* Sits on top of overlay */
             font-size: 2.8rem;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
             margin: 0;
@@ -120,19 +147,13 @@
         }
 
         /* --- Map Container --- */
-        .map-container {
-            width: 100%;
-            height: 450px;
-            border: 0;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
+        .map-container { width: 100%; height: 450px; border: 0; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
 
         /* --- Footer --- */
         footer { background: var(--secondary); color: white; padding: 60px 5% 20px; }
         .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 250px; }
-        .contact-list li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 1.1rem;}
+        .contact-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 1rem;}
         .contact-list a { color: #ccc; }
         .copyright { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #ccc; }
 
@@ -163,8 +184,19 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION (SLIDER) -->
     <section id="home" class="hero">
+        <!-- Slider Images (Must be named hero1.jpg, hero2.jpg, etc.) -->
+        <div class="hero-slide active" style="background-image: url('hero1.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('hero2.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('hero3.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('hero4.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('hero5.jpg');"></div>
+        
+        <!-- Light Overlay to make text readable but keep images bright -->
+        <div class="hero-overlay"></div>
+
+        <!-- Tagline -->
         <h2 class="bengali-font">অসহায় মানুষের পাশে থাকার অঙ্গীকার</h2>
     </section>
 
@@ -208,7 +240,7 @@
             <button class="tab-btn" onclick="openTab('donations')">Donations</button>
         </div>
 
-        <!-- 1. SUNDARBANS (FULL STORY RESTORED) -->
+        <!-- 1. SUNDARBANS -->
         <div id="sundarbans" class="project-content active">
             <div class="project-desc">
                 <h3 class="sub-section-title">Where Anubhav Began</h3>
@@ -216,11 +248,11 @@
                     The Sundarbans isn't just a project location for us; it is the <strong>birthplace of Anubhav</strong>. 
                     Our journey began here during the height of the <strong>COVID-19 outbreak</strong>, when the region was paralyzed by lockdowns. 
                     Witnessing families in <strong>Namkhana</strong> and the deep interior struggle for basic needs, we launched our first-ever relief drives.
-                    We delivered food, <strong>sanitary pads, baby food, and masks</strong> to over <strong>100 households</strong> when no one else could.
+                    We delivered food, <strong>sanitary pads, baby food, and masks</strong> to over <strong>100 households</strong>.
                 </p>
                 <p style="text-align: justify;">
                     <strong>Current Status:</strong> What started as emergency relief has evolved into a permanent <strong>Coaching Center</strong>. 
-                    We now support nearly <strong>70 children</strong> here, providing free education and nutrition to ensure that the generation we saved from hunger grows up to be educated and empowered.
+                    We now support nearly <strong>70 children</strong> here, providing free education and nutrition.
                 </p>
             </div>
             <div class="gallery">
@@ -230,14 +262,13 @@
             </div>
         </div>
 
-        <!-- 2. JHARGRAM (SPLIT INTO TWO SECTIONS) -->
+        <!-- 2. JHARGRAM -->
         <div id="jhargram" class="project-content">
-            
             <!-- A. Peniabhnga -->
             <div class="project-desc">
                 <h3 class="sub-section-title">1. Peniabhnga - Festive Joy</h3>
                 <div class="project-meta"><i class="fas fa-map-marker-alt"></i> Peniabhnga, Hargram | <i class="fas fa-calendar-alt"></i> Durga Puja 2024</div>
-                <p>On the auspicious eve of Durga Puja, we celebrated with the <strong>SABAR tribal group</strong>. We distributed <strong>60 new clothes, learning kits, cakes, and biscuits</strong> to children of different age groups. This initiative was conducted in collaboration with the kind-hearted <strong>Mrs. Sapna Midya</strong>. We also arranged a community lunch for <strong>100 people</strong>.</p>
+                <p>On the auspicious eve of Durga Puja, we celebrated with the <strong>SABAR tribal group</strong>. We distributed <strong>60 new clothes, learning kits, cakes, and biscuits</strong> to children. Collaborated with <strong>Mrs. Sapna Midya</strong>. We also arranged a community lunch for <strong>100 people</strong>.</p>
             </div>
             <div class="gallery">
                 <div class="gallery-item"><img src="jhargram1.jpg" alt="Peniabhnga" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">jhargram1.jpg</div></div>
@@ -249,20 +280,20 @@
                 <h3 class="sub-section-title">2. Gopiballavpur - Winter Relief</h3>
                 <div class="project-meta"><i class="fas fa-map-marker-alt"></i> Gopiballavpur | <i class="fas fa-calendar-alt"></i> 29th December, 2024</div>
                 <p>
-                    We carried out a challenging project in the remote village of Gopiballavpur to aid tribal families during the harsh winter. 
-                    We donated <strong>60 blankets</strong> to help them battle the cold. 
-                    This project was conducted in collaboration with the NGO <strong>"Subarnaseva"</strong> (সুবর্ণসেবা).
+                    We carried out a challenging project in Gopiballavpur to aid tribal families during the harsh winter. 
+                    We donated <strong>60 blankets</strong>. 
+                    Conducted in collaboration with the NGO <strong>"Subarnaseva"</strong> (সুবর্ণসেবা).
                 </p>
 
                 <!-- Recognition Memento -->
                 <div class="memento-container">
                     <h4 style="color: var(--primary);">Recognition of Service</h4>
                     <p>We were honored to receive a memento from "Subarnaseva" for our contribution.</p>
-                    <img src="memento.jpg" alt="Recognition Memento" class="memento-img" onerror="this.style.display='none'; this.parentElement.innerText+=' [Add memento.jpg]'">
+                    <!-- IMPORTANT: Ensure your photo is named memento.jpg -->
+                    <img src="memento.jpg" alt="Recognition Memento" class="memento-img" onerror="this.style.display='none'; this.parentElement.innerHTML += '<br><small style=\'color:red\'>Image missing. Please upload memento.jpg</small>'">
                 </div>
             </div>
 
-            <!-- 6 Photo Gallery for Gopiballavpur -->
             <div class="gallery" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
                 <div class="gallery-item"><img src="gopi1.jpg" alt="Gopi 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">gopi1.jpg</div></div>
                 <div class="gallery-item"><img src="gopi2.jpg" alt="Gopi 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">gopi2.jpg</div></div>
@@ -273,30 +304,22 @@
             </div>
         </div>
 
-        <!-- 3. BANKURA (SPLIT INTO TWO SECTIONS) -->
+        <!-- 3. BANKURA -->
         <div id="bankura" class="project-content">
-            
-            <!-- A. Pabra -->
             <div class="project-desc">
                 <h3 class="sub-section-title">1. Pabra Village</h3>
                 <div class="project-meta"><i class="fas fa-calendar-alt"></i> 29th December, 2024</div>
-                <p>We provided <strong>50 blankets</strong> to beneficiaries in Pabra village, doing whatever we could from our end to help them battle the shivering cold.</p>
+                <p>We provided <strong>50 blankets</strong> to beneficiaries in Pabra village to help them battle the shivering cold.</p>
             </div>
             <div class="gallery">
                 <div class="gallery-item"><img src="bankura1.jpg" alt="Bankura 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">bankura1.jpg</div></div>
                 <div class="gallery-item"><img src="bankura2.jpg" alt="Bankura 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">bankura2.jpg</div></div>
             </div>
-
-            <!-- B. Gangajalghati -->
             <div class="project-desc">
                 <h3 class="sub-section-title">2. Gangajalghati</h3>
                 <div class="project-meta"><i class="fas fa-map-marker-alt"></i> Gangajalghati | <i class="fas fa-calendar-alt"></i> Sept 28, 2024</div>
-                <p>
-                    On the auspicious eve of Durga Puja, we wanted to share the festive joy with the children of Gangajalghati. 
-                    We donated <strong>new dresses to 60 children</strong>, ensuring they had something new and bright to wear for the festival.
-                </p>
+                <p>We donated <strong>new dresses to 60 children</strong> on the eve of Durga Puja.</p>
             </div>
-            <!-- Dedicated Gallery for Gangajalghati -->
             <div class="gallery">
                 <div class="gallery-item"><img src="ganga1.jpg" alt="Gangajalghati 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">ganga1.jpg</div></div>
                 <div class="gallery-item"><img src="ganga2.jpg" alt="Gangajalghati 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">ganga2.jpg</div></div>
@@ -304,11 +327,11 @@
             </div>
         </div>
 
-        <!-- 4. PURULIA (VERIFIED) -->
+        <!-- 4. PURULIA -->
         <div id="purulia" class="project-content">
             <div class="project-desc">
                 <h3 class="sub-section-title">Development Drives</h3>
-                <p>In Purulia, Anubhav successfully executed projects tackling <strong>malnutrition</strong> and lack of educational supplies. We reached over <strong>200 families</strong> during our tenure here, executing development drives and health camps in remote villages.</p>
+                <p>In Purulia, Anubhav successfully executed projects tackling <strong>malnutrition</strong> and lack of educational supplies. We reached over <strong>200 families</strong>.</p>
             </div>
             <div class="gallery">
                 <div class="gallery-item"><img src="purulia1.jpg" alt="Purulia" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">purulia1.jpg</div></div>
@@ -316,11 +339,11 @@
             </div>
         </div>
 
-        <!-- 5. DIAMOND HARBOUR (NEW) -->
+        <!-- 5. DIAMOND HARBOUR -->
         <div id="diamond" class="project-content">
             <div class="project-desc">
                 <h3 class="sub-section-title">Our Home Base</h3>
-                <p>Diamond Harbour is our headquarters and the center of our operations. We conduct regular local awareness camps, blood donation drives, and support for the local community here.</p>
+                <p>Diamond Harbour is our headquarters. We conduct regular local awareness camps and blood donation drives here.</p>
             </div>
             <div class="gallery">
                 <div class="gallery-item"><img src="dh1.jpg" alt="Diamond Harbour 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">dh1.jpg</div></div>
@@ -328,11 +351,11 @@
             </div>
         </div>
 
-        <!-- 6. ENVIRONMENTAL IMPACT (NEW) -->
+        <!-- 6. ENVIRONMENT -->
         <div id="environment" class="project-content">
             <div class="project-desc">
                 <h3 class="sub-section-title">Green Initiatives</h3>
-                <p>We believe in a sustainable future. Our environmental projects include tree plantation drives in rural Bengal and plastic-free awareness campaigns in local markets.</p>
+                <p>Tree plantation drives in rural Bengal and plastic-free awareness campaigns.</p>
             </div>
             <div class="gallery">
                 <div class="gallery-item"><img src="env1.jpg" alt="Environment 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"> <div class="placeholder-text">env1.jpg</div></div>
@@ -340,27 +363,24 @@
             </div>
         </div>
 
-        <!-- 7. LOCATION TAB (NEW) -->
+        <!-- 7. LOCATION -->
         <div id="location" class="project-content">
             <div class="project-desc">
                 <h3 class="sub-section-title">Find Us</h3>
                 <p>Visit our registered office in Diamond Harbour.</p>
                 <div style="margin-top: 20px;">
-                    <!-- Google Map Embed for Specific Location -->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d230.8871892579141!2d88.18332962638839!3d22.19469340597002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1771129543005!5m2!1sen!2sin" class="map-container" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
 
-        <!-- 8. DONATIONS (NEW) -->
+        <!-- 8. DONATIONS -->
         <div id="donations" class="project-content" style="padding: 20px;">
             <div class="donation-box">
                 <h2 style="color: var(--primary); margin-bottom: 20px;">Support Our Cause</h2>
                 <p>Your small contribution can light up a life. Join hands with Anubhav to help the needy.</p>
                 <br>
-                <!-- Add your actual QR code image here named 'qr.jpg' -->
                 <img src="qr.jpg" alt="UPI QR Code" style="width: 200px; height: 200px; border: 1px solid #ddd; margin-bottom: 20px;" onerror="this.style.display='none'">
-                
                 <div style="text-align: left; margin-top: 20px;">
                     <p><strong>Bank Details:</strong></p>
                     <p>Bank Name: [Enter Bank Name]</p>
@@ -382,18 +402,21 @@
             </div>
             <div class="footer-col">
                 <h3 style="color:var(--primary); margin-bottom:20px;">Contact Us</h3>
-                <!-- UPDATED CONTACT NUMBERS -->
                 <ul class="contact-list">
                     <li><i class="fas fa-phone"></i> <a href="tel:9734477236">+91 9734477236</a></li>
                     <li><i class="fas fa-phone"></i> <a href="tel:7001013732">+91 7001013732</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:8670019753">+91 8670019753</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:9333376158">+91 9333376158</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:8609883092">+91 8609883092</a></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">&copy; 2024 Anubhav NGO. All Rights Reserved.</div>
     </footer>
 
-    <!-- JavaScript for Tabs -->
+    <!-- JavaScript for Tabs & Slider -->
     <script>
+        // Tab Functionality
         function openTab(tabName) {
             var i;
             var x = document.getElementsByClassName("project-content");
@@ -409,6 +432,19 @@
             setTimeout(() => { document.getElementById(tabName).classList.add("active"); }, 10);
             event.currentTarget.classList.add("active");
         }
+
+        // Slider Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Rotate every 5 seconds
+        setInterval(nextSlide, 5000);
     </script>
 
 </body>
