@@ -56,11 +56,9 @@
         .nav-links { display: flex; gap: 30px; align-items: center;}
         .nav-links a { font-weight: 600; color: var(--secondary-dark); font-size: 1rem; position: relative; }
         .nav-links a:hover { color: var(--primary); }
-        /* Underline animation for links */
         .nav-links a::after { content: ''; display: block; width: 0; height: 2px; background: var(--primary); transition: width .3s; }
         .nav-links a:hover::after { width: 100%; }
 
-        /* Modern Donate Button */
         .btn-donate { 
             background: linear-gradient(45deg, var(--primary), #ff9100); 
             color: white !important; padding: 12px 28px; border-radius: 50px; 
@@ -68,7 +66,6 @@
             transform: translateY(0);
         }
         .btn-donate:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 111, 0, 0.5); }
-        .btn-donate::after { display: none; } /* Remove underline from button */
 
         /* --- HERO SLIDER --- */
         .hero {
@@ -137,24 +134,26 @@
         .submit-btn { width: 100%; background: var(--secondary); color: white; padding: 15px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .submit-btn:hover { background: var(--secondary-dark); }
 
-        /* --- Memento & Map --- */
+        /* --- Memento --- */
         .memento-container { background: #fffde7; border: 2px dashed #fbc02d; padding: 25px; text-align: center; margin: 30px 0; border-radius: 15px; }
         .memento-img { max-width: 100%; height: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border-radius: 8px; margin-top: 15px; }
-        .map-container { width: 100%; height: 450px; border: 0; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
 
         /* --- MODERN FOOTER --- */
         footer { background: var(--footer-gradient); color: white; padding: 80px 5% 30px; position: relative; }
-        .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; max-width: 1400px; margin: 0 auto; }
+        .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1400px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 300px; }
         
-        .footer-col h2 { font-size: 3rem; margin-bottom: 10px; color: #ffab40; }
+        .footer-col h2 { font-size: 2.5rem; margin-bottom: 10px; color: #ffab40; }
         .footer-col h3 { color: #fff; margin-bottom: 25px; font-size: 1.4rem; font-weight: 600; position: relative; padding-bottom: 10px; }
         .footer-col h3::after { content: ''; display: block; width: 50px; height: 3px; background: var(--primary); position: absolute; bottom: 0; left: 0; }
         
-        .contact-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .contact-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 15px; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
         .contact-list i { color: #ffab40; font-size: 1.2rem; width: 25px; text-align: center; }
         .contact-list a { color: #e3f2fd; }
         .contact-list a:hover { color: #fff; padding-left: 5px; }
+        
+        /* Footer Map */
+        .footer-map { width: 100%; height: 250px; border: 0; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); margin-top: 10px; }
         
         .copyright { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #bbdefb; font-size: 0.9rem; }
 
@@ -163,7 +162,7 @@
             .hero h2 { font-size: 2rem; } 
             .tabs { overflow-x: auto; justify-content: flex-start; width: 100%; border-radius: 10px; padding: 10px; }
             .tab-btn { white-space: nowrap; }
-            .stat-box { border: none; border-bottom: 1px solid #eee; padding: 20px; }
+            .footer-col { min-width: 100%; }
         }
     </style>
 </head>
@@ -193,7 +192,6 @@
 
     <!-- HERO SLIDER (10 Photos) -->
     <section id="home" class="hero">
-        <!-- Add hero1.jpg to hero10.jpg -->
         <div class="hero-slide active" style="background-image: url('hero1.jpg');"></div>
         <div class="hero-slide" style="background-image: url('hero2.jpg');"></div>
         <div class="hero-slide" style="background-image: url('hero3.jpg');"></div>
@@ -248,7 +246,6 @@
             <button class="tab-btn" onclick="openTab('purulia')">Purulia</button>
             <button class="tab-btn" onclick="openTab('diamond')">Diamond Harbour</button>
             <button class="tab-btn" onclick="openTab('environment')">Environment</button>
-            <button class="tab-btn" onclick="openTab('location')">Location</button>
             <button class="tab-btn" onclick="openTab('join')">Join Us</button>
             <button class="tab-btn" onclick="openTab('gallery')">Gallery</button>
             <button class="tab-btn" onclick="openTab('donations')">Donations</button>
@@ -262,7 +259,6 @@
                 <p><strong>Current Status:</strong> What started as emergency relief has evolved into a permanent <strong>Coaching Center</strong>. We now support nearly <strong>70 children</strong> here, providing free education and nutrition to ensure that the generation we saved from hunger grows up to be educated and empowered.</p>
             </div>
             <div class="gallery">
-                <!-- 8 Photos -->
                 <div class="gallery-item"><img src="sundarban1.jpg" alt="Sundarban" onerror="this.style.display='none'"><div class="placeholder-text">sundarban1.jpg</div></div>
                 <div class="gallery-item"><img src="sundarban2.jpg" alt="Sundarban" onerror="this.style.display='none'"><div class="placeholder-text">sundarban2.jpg</div></div>
                 <div class="gallery-item"><img src="sundarban3.jpg" alt="Sundarban" onerror="this.style.display='none'"><div class="placeholder-text">sundarban3.jpg</div></div>
@@ -383,23 +379,12 @@
             </div>
         </div>
 
-        <!-- 7. LOCATION -->
-        <div id="location" class="project-content">
-            <div class="project-desc">
-                <h3 class="sub-section-title">Visit Our Office</h3>
-                <p>Find us in Diamond Harbour, West Bengal.</p>
-                <div style="margin-top: 20px;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d230.8871892579141!2d88.18332962638839!3d22.19469340597002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1771129543005!5m2!1sen!2sin" class="map-container" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-
-        <!-- 8. JOIN US (Form) -->
+        <!-- 7. JOIN US (Form) -->
         <div id="join" class="project-content">
             <div class="form-box">
                 <h2 style="color: var(--primary); margin-bottom: 20px; text-align: center;">Become a Member</h2>
                 <p style="text-align: center; margin-bottom: 30px;">Join our mission to help the underprivileged.</p>
-                <form action="mailto:anubhavngo@example.com" method="post" enctype="text/plain">
+                <form action="mailto:officialanubhav21@gmail.com" method="post" enctype="text/plain">
                     <div class="form-group">
                         <label>Full Name</label>
                         <input type="text" class="form-control" placeholder="Your Name" required>
@@ -421,7 +406,7 @@
             </div>
         </div>
 
-        <!-- 9. GALLERY TAB (15 Photos) -->
+        <!-- 8. GALLERY TAB (15 Photos) -->
         <div id="gallery" class="project-content">
             <h3 style="text-align: center; margin-bottom: 20px; font-size: 2rem;">Our Moments</h3>
             <div class="gallery">
@@ -443,7 +428,7 @@
             </div>
         </div>
 
-        <!-- 10. DONATIONS -->
+        <!-- 9. DONATIONS -->
         <div id="donations" class="project-content">
             <div class="donation-box">
                 <h2 style="color: var(--primary); margin-bottom: 20px; text-align: center;">Support Us</h2>
@@ -462,12 +447,14 @@
     <!-- MODERN FOOTER -->
     <footer id="contact">
         <div class="footer-container">
+            <!-- Branding -->
             <div class="footer-col">
                 <h2 class="bengali-font">অনুভব</h2>
                 <span class="reg-badge" style="border: 1px solid white;">Reg No: S0028919</span>
                 <p style="margin-top:20px; color:#e3f2fd;">Diamond Harbour, West Bengal</p>
             </div>
             
+            <!-- Contact Info -->
             <div class="footer-col">
                 <h3>Contact Us</h3>
                 <ul class="contact-list">
@@ -476,7 +463,15 @@
                     <li><i class="fas fa-phone"></i> <a href="tel:8670019753">+91 8670019753</a></li>
                     <li><i class="fas fa-phone"></i> <a href="tel:9333376158">+91 9333376158</a></li>
                     <li><i class="fas fa-phone"></i> <a href="tel:8609883092">+91 8609883092</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:officialanubhav21@gmail.com">officialanubhav21@gmail.com</a></li>
                 </ul>
+            </div>
+
+            <!-- Location Map -->
+            <div class="footer-col">
+                <h3>Location</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d230.8871892579141!2d88.18332962638839!3d22.19469340597002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1771129543005!5m2!1sen!2sin" 
+                    class="footer-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
         <div class="copyright">&copy; 2024 Anubhav NGO. Designed for Impact.</div>
