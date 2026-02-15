@@ -62,14 +62,13 @@
         /* --- HERO SLIDER (Mobile Optimized) --- */
         .hero {
             position: relative; 
-            height: 85vh; /* Standard Height */
+            height: 85vh; 
             display: flex; align-items: flex-end; justify-content: center;
             text-align: center; color: white; padding-bottom: 80px; margin-top: 80px; overflow: hidden;
         }
         
-        /* Mobile Optimization for Hero */
         @media (max-width: 768px) {
-            .hero { height: 60vh; } /* Shorter on mobile to prevent extreme zooming */
+            .hero { height: 60vh; } 
             .hero h2 { font-size: 1.8rem; padding: 0 10px; }
         }
 
@@ -78,43 +77,32 @@
             opacity: 0; transition: opacity 1.5s ease-in-out; z-index: 0;
         }
         
-        /* Using IMG tag inside slider for better control */
         .hero-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* CRITICAL: Focus on the TOP of the image (Heads) */
-            object-position: top center; 
+            width: 100%; height: 100%; object-fit: cover; object-position: top center; 
         }
 
         .hero-slide.active { opacity: 1; }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6)); z-index: 1; }
         .hero h2 { position: relative; z-index: 2; font-size: 3rem; text-shadow: 3px 3px 10px rgba(0,0,0,0.8); margin: 0; padding: 0 20px; }
 
-        /* --- Stats --- */
+        /* --- Stats (UPDATED) --- */
         .stats { background: var(--white); padding: 40px 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; text-align: center; margin-top: -40px; position: relative; z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 1100px; margin-left: auto; margin-right: auto; border-radius: 15px; }
         .stat-box { flex: 1; min-width: 150px; }
         .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); display: block; line-height: 1; }
-        .stat-label { font-size: 0.8rem; font-weight: 600; color: #666; text-transform: uppercase; }
+        .stat-label { font-size: 0.85rem; font-weight: 600; color: #666; text-transform: uppercase; }
 
         /* --- Sections --- */
         .section { padding: 60px 5%; max-width: 1400px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.2rem; color: var(--secondary-dark); margin-bottom: 40px; font-weight: 700; }
         
-        /* --- TABS (Scrollable on Mobile) --- */
+        /* --- TABS --- */
         .tabs { 
             display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; 
             flex-wrap: wrap; background: #fff; padding: 10px; border-radius: 50px; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
         }
         @media (max-width: 768px) {
-            .tabs { 
-                justify-content: flex-start; 
-                overflow-x: auto; 
-                white-space: nowrap; 
-                border-radius: 10px;
-                padding-bottom: 15px; /* Space for scrollbar */
-            }
+            .tabs { justify-content: flex-start; overflow-x: auto; white-space: nowrap; border-radius: 10px; padding-bottom: 15px; }
         }
         
         .tab-btn {
@@ -131,64 +119,34 @@
         .project-desc { margin-bottom: 20px; font-size: 1rem; color: #444; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
         .project-meta { color: var(--primary); font-size: 0.85rem; margin-bottom: 10px; font-weight: 700; display: block; text-transform: uppercase; }
 
-        /* --- MOBILE OPTIMIZED GALLERY GRID --- */
-        .gallery { 
-            display: grid; 
-            /* Two columns on mobile, more on desktop */
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 10px; 
-            margin-bottom: 30px; 
-        }
+        /* --- GALLERY GRID --- */
+        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 30px; }
         @media (min-width: 768px) {
             .gallery { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         }
 
         .gallery-item { 
-            /* Make thumbnails square so they look uniform on mobile */
-            aspect-ratio: 1 / 1; 
-            background: #eee; 
-            overflow: hidden; 
-            border-radius: 10px; 
-            position: relative; 
-            cursor: pointer; /* Indicates clickable */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            aspect-ratio: 1 / 1; background: #eee; overflow: hidden; border-radius: 10px; 
+            position: relative; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
-        .gallery-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            /* CRITICAL: Keeps heads visible in thumbnails */
-            object-position: top center; 
-            transition: transform 0.3s; 
-        }
-        
-        /* Hint to click */
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.3s; }
         .gallery-item::after {
-            content: '\f00e'; /* FontAwesome search icon */
-            font-family: "Font Awesome 5 Free"; font-weight: 900;
+            content: '\f00e'; font-family: "Font Awesome 5 Free"; font-weight: 900;
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             color: white; font-size: 1.5rem; opacity: 0; transition: 0.3s;
             text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
         .gallery-item:hover::after { opacity: 1; }
         .gallery-item:hover img { transform: scale(1.1); filter: brightness(0.7); }
-
         .placeholder-text { display: flex; align-items: center; justify-content: center; height: 100%; color: #999; font-size: 0.7rem; padding: 5px; text-align: center; }
 
-        /* --- LIGHTBOX (Popup for Full Size Image) --- */
+        /* --- LIGHTBOX --- */
         #lightbox {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95); justify-content: center; align-items: center; flex-direction: column;
         }
-        #lightbox-img {
-            max-width: 95%; max-height: 80vh; 
-            object-fit: contain; /* Shows full image without cropping */
-            border-radius: 5px; box-shadow: 0 0 20px rgba(255,255,255,0.1);
-        }
-        #close-lightbox {
-            color: white; font-size: 3rem; position: absolute; top: 20px; right: 30px; cursor: pointer;
-        }
+        #lightbox-img { max-width: 95%; max-height: 80vh; object-fit: contain; border-radius: 5px; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
+        #close-lightbox { color: white; font-size: 3rem; position: absolute; top: 20px; right: 30px; cursor: pointer; }
         #lightbox-caption { color: #ccc; margin-top: 15px; font-size: 1rem; }
 
         /* --- Forms & Donation --- */
@@ -217,7 +175,7 @@
 </head>
 <body>
 
-    <!-- LIGHTBOX (Hidden by default) -->
+    <!-- LIGHTBOX -->
     <div id="lightbox" onclick="closeLightbox()">
         <span id="close-lightbox">&times;</span>
         <img id="lightbox-img" src="" alt="Full view">
@@ -248,7 +206,6 @@
 
     <!-- HERO SLIDER -->
     <section id="home" class="hero">
-        <!-- Using IMG tags for better mobile scaling and top-alignment -->
         <div class="hero-slide active"><img src="hero1.jpg" alt="Hero 1"></div>
         <div class="hero-slide"><img src="hero2.jpg" alt="Hero 2"></div>
         <div class="hero-slide"><img src="hero3.jpg" alt="Hero 3"></div>
@@ -264,15 +221,15 @@
         <h2 class="bengali-font">অসহায় মানুষের পাশে থাকার অঙ্গীকার</h2>
     </section>
 
-    <!-- Stats -->
+    <!-- STATS (Updated) -->
     <div class="stats">
         <div class="stat-box">
             <span class="stat-number">50+</span>
             <span class="stat-label">Projects</span>
         </div>
         <div class="stat-box">
-            <span class="stat-number">100+</span>
-            <span class="stat-label">Fed</span>
+            <span class="stat-number">1000+</span>
+            <span class="stat-label">Beneficiaries</span>
         </div>
         <div class="stat-box">
             <span class="stat-number">4</span>
@@ -280,7 +237,7 @@
         </div>
         <div class="stat-box">
             <span class="stat-number">5+</span>
-            <span class="stat-label">Years</span>
+            <span class="stat-label">Years Operational</span>
         </div>
     </div>
 
