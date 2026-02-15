@@ -18,12 +18,11 @@
             --primary-dark: #c43e00;
             --secondary: #1565c0; /* Vibrant Blue */
             --secondary-dark: #003c8f;
-            --accent: #00c853; /* Green */
             --bg-light: #f8f9fa;
             --text-dark: #2c3e50;
             --white: #ffffff;
-            --gradient-header: linear-gradient(90deg, #ffffff 0%, #f0f4ff 100%);
-            --gradient-footer: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+            --gradient-header: linear-gradient(90deg, #ffffff 0%, #fff3e0 100%);
+            --gradient-footer: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,8 +54,6 @@
         .nav-links { display: flex; gap: 25px; align-items: center;}
         .nav-links a { font-weight: 600; color: var(--secondary-dark); position: relative; }
         .nav-links a:hover { color: var(--primary); }
-        .nav-links a::after { content: ''; display: block; width: 0; height: 2px; background: var(--primary); transition: width .3s; }
-        .nav-links a:hover::after { width: 100%; }
         
         .btn-donate { 
             background: linear-gradient(45deg, var(--primary), #ff9100); 
@@ -64,7 +61,6 @@
             font-weight: 700; box-shadow: 0 4px 15px rgba(230, 81, 0, 0.3); transform: scale(1);
         }
         .btn-donate:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(230, 81, 0, 0.4); }
-        .btn-donate::after { display: none !important; } /* Remove underline effect for button */
 
         /* --- HERO SLIDER (10 Photos) --- */
         .hero {
@@ -79,7 +75,8 @@
         .hero-slide.active { opacity: 1; }
         @keyframes zoomEffect { from { transform: scale(1); } to { transform: scale(1.1); } }
         
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6)); z-index: 1; }
+        /* Brighter Overlay */
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5)); z-index: 1; }
         
         .hero h2 {
             position: relative; z-index: 2; font-size: 3.5rem; 
@@ -118,8 +115,8 @@
         .project-meta { color: var(--primary); font-size: 0.9rem; margin-bottom: 15px; font-weight: 700; display: block; }
         
         /* --- Gallery Grid --- */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 40px; }
-        .gallery-item { height: 220px; background: #eee; overflow: hidden; border-radius: 10px; position: relative; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 40px; }
+        .gallery-item { height: 200px; background: #eee; overflow: hidden; border-radius: 10px; position: relative; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
         .gallery-item:hover img { transform: scale(1.1); }
         .placeholder-text { display: flex; align-items: center; justify-content: center; height: 100%; color: #999; font-size: 0.8rem; padding: 10px; text-align: center; }
@@ -254,8 +251,10 @@
         <div id="sundarbans" class="project-content active">
             <div class="project-desc">
                 <h3 class="sub-section-title">Where Anubhav Began</h3>
-                <p>The Sundarbans is the birthplace of Anubhav. Born during the COVID-19 lockdown, we started by feeding 100 starving households in Namkhana. Today, we run a permanent <strong>Coaching Center for nearly 70 children</strong>, providing education and nutrition.</p>
+                <p>The Sundarbans isn't just a project location for us; it is the <strong>birthplace of Anubhav</strong>. Our journey began here during the height of the <strong>COVID-19 outbreak</strong>, when the region was paralyzed by lockdowns. Witnessing families in <strong>Namkhana</strong> and the deep interior struggle for basic needs, we launched our first-ever relief drives to help over <strong>100 households</strong>.</p>
+                <p><strong>Current Status:</strong> What started as emergency relief has evolved into a permanent <strong>Coaching Center</strong>. We now support nearly <strong>70 children</strong> here, providing free education and nutrition to ensure that the generation we saved from hunger grows up to be educated and empowered.</p>
             </div>
+            <!-- 8 Photos for Sundarbans -->
             <div class="gallery">
                 <div class="gallery-item"><img src="sundarban1.jpg" alt="Sundarban" onerror="this.style.display='none'"><div class="placeholder-text">sundarban1.jpg</div></div>
                 <div class="gallery-item"><img src="sundarban2.jpg" alt="Sundarban" onerror="this.style.display='none'"><div class="placeholder-text">sundarban2.jpg</div></div>
@@ -270,34 +269,55 @@
 
         <!-- 2. JHARGRAM (8 Photos Total) -->
         <div id="jhargram" class="project-content">
+            <!-- Section A: Peniabhnga -->
             <div class="project-desc">
-                <h3 class="sub-section-title">Peniabhnga & Gopiballavpur</h3>
-                <span class="project-meta">Durga Puja 2024 & Winter Relief 2024</span>
-                <p>We celebrated Durga Puja with the SABAR tribe in Peniabhnga, distributing clothes to 60 children and feeding 100 people (Collab: Sapna Midya). Later, in Gopiballavpur, we donated 60 blankets during winter (Collab: Subarnaseva).</p>
-                
+                <h3 class="sub-section-title">1. Peniabhnga - Festive Joy</h3>
+                <span class="project-meta">Durga Puja 2024 | Collab: Mrs. Sapna Midya</span>
+                <p>On the auspicious eve of Durga Puja, we celebrated with the <strong>SABAR tribal group</strong>. We distributed <strong>60 new clothes, learning kits, cakes, and biscuits</strong> to children of different age groups. We also arranged a community lunch for <strong>100 people</strong>.</p>
+            </div>
+            
+            <!-- Section B: Gopiballavpur -->
+            <div class="project-desc">
+                <h3 class="sub-section-title">2. Gopiballavpur - Winter Relief</h3>
+                <span class="project-meta">29th Dec 2024 | Collab: Subarnaseva</span>
+                <p>We carried out a challenging project in the remote village of Gopiballavpur to aid tribal families during the harsh winter. We donated <strong>60 blankets</strong> to help them battle the cold. Our work was recognized by the NGO <strong>"Subarnaseva"</strong>.</p>
                 <div class="memento-container">
-                    <h4>Recognition by Subarnaseva</h4>
+                    <h4>Recognition of Service</h4>
+                    <p>Memento received from Subarnaseva</p>
                     <img src="memento.jpg" alt="Memento" class="memento-img" onerror="this.style.display='none'; this.parentElement.innerHTML+='<br>Upload memento.jpg'">
                 </div>
             </div>
+
+            <!-- 8 Photos for Jhargram -->
             <div class="gallery">
-                <div class="gallery-item"><img src="jhargram1.jpg" alt="Jhargram" onerror="this.style.display='none'"><div class="placeholder-text">jhargram1.jpg</div></div>
-                <div class="gallery-item"><img src="jhargram2.jpg" alt="Jhargram" onerror="this.style.display='none'"><div class="placeholder-text">jhargram2.jpg</div></div>
-                <div class="gallery-item"><img src="jhargram3.jpg" alt="Jhargram" onerror="this.style.display='none'"><div class="placeholder-text">jhargram3.jpg</div></div>
-                <div class="gallery-item"><img src="jhargram4.jpg" alt="Jhargram" onerror="this.style.display='none'"><div class="placeholder-text">jhargram4.jpg</div></div>
-                <div class="gallery-item"><img src="jhargram5.jpg" alt="Jhargram" onerror="this.style.display='none'"><div class="placeholder-text">jhargram5.jpg</div></div>
-                <div class="gallery-item"><img src="jhargram6.jpg" alt="Jhargram" onerror="this.style.display='none'"><div class="placeholder-text">jhargram6.jpg</div></div>
-                <div class="gallery-item"><img src="jhargram7.jpg" alt="Jhargram" onerror="this.style.display='none'"><div class="placeholder-text">jhargram7.jpg</div></div>
-                <div class="gallery-item"><img src="jhargram8.jpg" alt="Jhargram" onerror="this.style.display='none'"><div class="placeholder-text">jhargram8.jpg</div></div>
+                <div class="gallery-item"><img src="jhargram1.jpg" onerror="this.style.display='none'"><div class="placeholder-text">jhargram1.jpg</div></div>
+                <div class="gallery-item"><img src="jhargram2.jpg" onerror="this.style.display='none'"><div class="placeholder-text">jhargram2.jpg</div></div>
+                <div class="gallery-item"><img src="jhargram3.jpg" onerror="this.style.display='none'"><div class="placeholder-text">jhargram3.jpg</div></div>
+                <div class="gallery-item"><img src="jhargram4.jpg" onerror="this.style.display='none'"><div class="placeholder-text">jhargram4.jpg</div></div>
+                <div class="gallery-item"><img src="jhargram5.jpg" onerror="this.style.display='none'"><div class="placeholder-text">jhargram5.jpg</div></div>
+                <div class="gallery-item"><img src="jhargram6.jpg" onerror="this.style.display='none'"><div class="placeholder-text">jhargram6.jpg</div></div>
+                <div class="gallery-item"><img src="jhargram7.jpg" onerror="this.style.display='none'"><div class="placeholder-text">jhargram7.jpg</div></div>
+                <div class="gallery-item"><img src="jhargram8.jpg" onerror="this.style.display='none'"><div class="placeholder-text">jhargram8.jpg</div></div>
             </div>
         </div>
 
         <!-- 3. BANKURA (6 Photos) -->
         <div id="bankura" class="project-content">
+            <!-- Section A: Pabra -->
             <div class="project-desc">
-                <h3 class="sub-section-title">Pabra & Gangajalghati</h3>
-                <p>We provided 50 blankets in Pabra village during winter. In Gangajalghati, we distributed new dresses to 60 children on the eve of Durga Puja.</p>
+                <h3 class="sub-section-title">1. Pabra Village</h3>
+                <span class="project-meta">29th Dec 2024 | Winter Relief</span>
+                <p>We provided <strong>50 blankets</strong> to beneficiaries in Pabra village, doing whatever we could from our end to help them battle the shivering cold.</p>
             </div>
+            
+            <!-- Section B: Gangajalghati -->
+            <div class="project-desc">
+                <h3 class="sub-section-title">2. Gangajalghati</h3>
+                <span class="project-meta">Sept 28, 2024 | Durga Puja</span>
+                <p>On the auspicious eve of Durga Puja, we wanted to share the festive joy with the children of Gangajalghati. We donated <strong>new dresses to 60 children</strong>, ensuring they had something new and bright to wear for the festival.</p>
+            </div>
+
+            <!-- 6 Photos for Bankura -->
             <div class="gallery">
                 <div class="gallery-item"><img src="bankura1.jpg" onerror="this.style.display='none'"><div class="placeholder-text">bankura1.jpg</div></div>
                 <div class="gallery-item"><img src="bankura2.jpg" onerror="this.style.display='none'"><div class="placeholder-text">bankura2.jpg</div></div>
@@ -312,7 +332,7 @@
         <div id="purulia" class="project-content">
             <div class="project-desc">
                 <h3 class="sub-section-title">Development Drives</h3>
-                <p>Tackling malnutrition and educational gaps for over 200 families.</p>
+                <p>In Purulia, Anubhav successfully executed projects tackling <strong>malnutrition</strong> and lack of educational supplies. We reached over <strong>200 families</strong> during our tenure here, executing development drives and health camps in remote villages.</p>
             </div>
             <div class="gallery">
                 <div class="gallery-item"><img src="purulia1.jpg" onerror="this.style.display='none'"><div class="placeholder-text">purulia1.jpg</div></div>
@@ -328,7 +348,7 @@
         <div id="diamond" class="project-content">
             <div class="project-desc">
                 <h3 class="sub-section-title">Headquarters Activities</h3>
-                <p>Blood donation camps and awareness drives at our home base.</p>
+                <p>Diamond Harbour is our headquarters and the center of our operations. We conduct regular local awareness camps, blood donation drives, and support for the local community here.</p>
             </div>
             <div class="gallery">
                 <div class="gallery-item"><img src="dh1.jpg" onerror="this.style.display='none'"><div class="placeholder-text">dh1.jpg</div></div>
@@ -344,7 +364,7 @@
         <div id="environment" class="project-content">
             <div class="project-desc">
                 <h3 class="sub-section-title">Green Bengal</h3>
-                <p>Tree plantation and plastic-free awareness.</p>
+                <p>We believe in a sustainable future. Our environmental projects include tree plantation drives in rural Bengal and plastic-free awareness campaigns in local markets.</p>
             </div>
             <div class="gallery">
                 <div class="gallery-item"><img src="env1.jpg" onerror="this.style.display='none'"><div class="placeholder-text">env1.jpg</div></div>
@@ -360,6 +380,7 @@
         <div id="location" class="project-content">
             <div class="project-desc">
                 <h3 class="sub-section-title">Visit Our Office</h3>
+                <p>Find us in Diamond Harbour, West Bengal.</p>
                 <div style="margin-top: 20px;">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d230.8871892579141!2d88.18332962638839!3d22.19469340597002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1771129543005!5m2!1sen!2sin" class="map-container" allowfullscreen="" loading="lazy"></iframe>
                 </div>
@@ -395,8 +416,9 @@
 
         <!-- 9. GALLERY TAB (15 Photos) -->
         <div id="gallery" class="project-content">
-            <h3 style="text-align: center; margin-bottom: 20px;">Our Moments</h3>
+            <h3 style="text-align: center; margin-bottom: 20px; font-size: 2rem;">Our Moments</h3>
             <div class="gallery">
+                <!-- Add gallery1.jpg to gallery15.jpg -->
                 <div class="gallery-item"><img src="gallery1.jpg" onerror="this.style.display='none'"><div class="placeholder-text">gallery1.jpg</div></div>
                 <div class="gallery-item"><img src="gallery2.jpg" onerror="this.style.display='none'"><div class="placeholder-text">gallery2.jpg</div></div>
                 <div class="gallery-item"><img src="gallery3.jpg" onerror="this.style.display='none'"><div class="placeholder-text">gallery3.jpg</div></div>
