@@ -59,7 +59,7 @@
             font-weight: 700; box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3); 
         }
 
-        /* --- HERO SLIDER (Mobile Optimized) --- */
+        /* --- HERO SLIDER --- */
         .hero {
             position: relative; 
             height: 85vh; 
@@ -85,7 +85,7 @@
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6)); z-index: 1; }
         .hero h2 { position: relative; z-index: 2; font-size: 3rem; text-shadow: 3px 3px 10px rgba(0,0,0,0.8); margin: 0; padding: 0 20px; }
 
-        /* --- Stats (UPDATED) --- */
+        /* --- Stats --- */
         .stats { background: var(--white); padding: 40px 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; text-align: center; margin-top: -40px; position: relative; z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 1100px; margin-left: auto; margin-right: auto; border-radius: 15px; }
         .stat-box { flex: 1; min-width: 150px; }
         .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); display: block; line-height: 1; }
@@ -155,14 +155,31 @@
         .form-control { width: 100%; padding: 10px; border: 2px solid #eee; border-radius: 8px; }
         .submit-btn { width: 100%; background: var(--secondary); color: white; padding: 12px; border: none; border-radius: 8px; font-weight: bold; }
 
-        /* --- Footer --- */
+        /* --- Footer (UPDATED) --- */
         footer { background: var(--footer-gradient); color: white; padding: 60px 5% 20px; }
         .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; max-width: 1400px; margin: 0 auto; }
-        .footer-col { flex: 1; min-width: 300px; }
+        .footer-col { flex: 1; min-width: 250px; } /* Slightly reduced min-width to fit 4 cols */
         .footer-col h2 { font-size: 2.5rem; margin-bottom: 10px; color: #ffab40; }
-        .contact-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .footer-map { width: 100%; height: 200px; border: 0; border-radius: 10px; margin-top: 10px; }
+        .footer-col h3 { margin-bottom: 15px; color: #fff; position: relative; display: inline-block; }
+        .footer-col h3::after { content: ''; position: absolute; left: 0; bottom: -5px; width: 40px; height: 3px; background: var(--primary); }
+        
+        .contact-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
+        .footer-map { width: 100%; height: 180px; border: 0; border-radius: 10px; margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         .copyright { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #bbdefb; font-size: 0.8rem; }
+
+        /* New Email Segment Style */
+        .email-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: 0.3s;
+        }
+        .email-box:hover { background: rgba(255,255,255,0.2); transform: translateY(-3px); }
+        .email-icon { font-size: 2rem; color: #ffab40; margin-bottom: 10px; display: block; }
+        .email-link { font-weight: 700; color: white; font-size: 1rem; word-break: break-all; }
+        .email-subtext { font-size: 0.8rem; color: #bbdefb; margin-top: 5px; }
 
         @media (max-width: 768px) { 
             .navbar { flex-direction: column; gap: 10px; } 
@@ -221,7 +238,7 @@
         <h2 class="bengali-font">অসহায় মানুষের পাশে থাকার অঙ্গীকার</h2>
     </section>
 
-    <!-- STATS (Updated) -->
+    <!-- STATS -->
     <div class="stats">
         <div class="stat-box">
             <span class="stat-number">50+</span>
@@ -414,7 +431,7 @@
             </div>
         </div>
 
-        <!-- 8. GALLERY TAB (15 Photos) -->
+        <!-- 8. GALLERY TAB -->
         <div id="gallery" class="project-content">
             <h3 style="text-align: center; margin-bottom: 20px; font-size: 2rem;">Our Moments</h3>
             <div class="gallery">
@@ -452,27 +469,39 @@
 
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (UPDATED) -->
     <footer id="contact">
         <div class="footer-container">
+            <!-- 1. Brand -->
             <div class="footer-col">
                 <h2 class="bengali-font">অনুভব</h2>
                 <span class="reg-badge" style="border: 1px solid white;">Reg No: S0028919</span>
                 <p style="margin-top:20px; color:#e3f2fd;">Diamond Harbour, West Bengal</p>
             </div>
             
+            <!-- 2. Phone Numbers (Email Removed) -->
             <div class="footer-col">
-                <h3>Contact Us</h3>
+                <h3>Call Us</h3>
                 <ul class="contact-list">
                     <li><i class="fas fa-phone"></i> <a href="tel:9734477236">+91 9734477236</a></li>
                     <li><i class="fas fa-phone"></i> <a href="tel:7001013732">+91 7001013732</a></li>
                     <li><i class="fas fa-phone"></i> <a href="tel:8670019753">+91 8670019753</a></li>
                     <li><i class="fas fa-phone"></i> <a href="tel:9333376158">+91 9333376158</a></li>
                     <li><i class="fas fa-phone"></i> <a href="tel:8609883092">+91 8609883092</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:officialanubhav21@gmail.com">officialanubhav21@gmail.com</a></li>
                 </ul>
             </div>
 
+            <!-- 3. NEW EMAIL SEGMENT -->
+            <div class="footer-col">
+                <h3>Email Us</h3>
+                <div class="email-box">
+                    <i class="fas fa-paper-plane email-icon"></i>
+                    <a href="mailto:officialanubhav21@gmail.com" class="email-link">officialanubhav21@gmail.com</a>
+                    <p class="email-subtext">For collaborations & queries</p>
+                </div>
+            </div>
+
+            <!-- 4. Location -->
             <div class="footer-col">
                 <h3>Location</h3>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d230.8871892579141!2d88.18332962638839!3d22.19469340597002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1771129543005!5m2!1sen!2sin" 
